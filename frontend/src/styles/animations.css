@@ -1,0 +1,390 @@
+/**
+ * 动画样式
+ * CSS 动画关键帧定义，配合 GSAP 使用
+ * 包含原神风格动画：粒子飘浮、金色微光、加载旋转等
+ */
+
+/* ==================== 淡入动画 ==================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ==================== 缩放动画 ==================== */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ==================== 旋转动画 ==================== */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==================== 金色光芒效果 ==================== */
+@keyframes goldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--color-gold-glow);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--color-gold-glow), 0 0 40px var(--color-gold-glow);
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px var(--color-gold-glow);
+  }
+  50% {
+    text-shadow: 0 0 10px var(--color-gold-glow), 0 0 20px var(--color-cyan-glow);
+  }
+}
+
+/* ==================== 星空粒子效果 ==================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ==================== 原神风格动画 ==================== */
+
+/** 粒子飘浮动画 - 模拟金色粒子上升飘浮 */
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(20px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/** 金色微光闪烁 - 用于装饰元素 */
+@keyframes goldSparkle {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
+}
+
+/** 页面切换淡入 */
+@keyframes pageTransition {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/** 卡片悬停发光 */
+@keyframes cardHoverGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(212, 168, 83, 0);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(212, 168, 83, 0.4), 0 0 50px rgba(212, 168, 83, 0.2);
+  }
+}
+
+/** 原神风格加载旋转 - 双环旋转 */
+@keyframes genshinSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes genshinSpinReverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/** 金色边框流光 */
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/** 角色入场动画 - 从下方浮现 */
+@keyframes riseUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/** 文字逐字显现 */
+@keyframes letterReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/** 元素光环旋转 */
+@keyframes elementRing {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.6;
+  }
+}
+
+/* ==================== 过渡动画类 ==================== */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--transition-normal);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all var(--transition-normal);
+}
+
+.slide-enter-from {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.slide-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/* ==================== 列表动画 ==================== */
+.list-enter-active,
+.list-leave-active {
+  transition: all var(--transition-normal);
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.list-move {
+  transition: transform var(--transition-normal);
+}
+
+/* ==================== 工具类 ==================== */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out;
+}
+
+.animate-glow {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.animate-text-glow {
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-page {
+  animation: pageTransition 0.5s ease-out;
+}
+
+.animate-rise {
+  animation: riseUp 0.7s ease-out;
+}
+
+/* 金色文字渐变闪光效果 */
+.gold-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-gold-primary),
+    var(--color-gold-light),
+    var(--color-amber-light),
+    var(--color-gold-primary)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 3s linear infinite;
+}
+
+/* ==================== 原神风格加载动画 ==================== */
+.genshin-loader {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.genshin-loader__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.genshin-loader__ring--outer {
+  border-top-color: var(--color-gold-primary);
+  border-right-color: var(--color-gold-light);
+  animation: genshinSpin 1.2s linear infinite;
+}
+
+.genshin-loader__ring--inner {
+  inset: 8px;
+  border-bottom-color: var(--color-cyan-primary);
+  border-left-color: var(--color-cyan-light);
+  animation: genshinSpinReverse 1.5s linear infinite;
+}
+
+.genshin-loader__dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translate(-50%, -50%);
+  background: var(--color-gold-light);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--color-gold-glow);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+/* 粒子容器 */
+.particles-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  bottom: -10px;
+  width: 4px;
+  height: 4px;
+  background: var(--color-gold-light);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--color-gold-glow);
+  animation: particleFloat linear infinite;
+  opacity: 0;
+}

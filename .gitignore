@@ -1,0 +1,38 @@
+# ---- Node / 前端 ----
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local
+
+# ---- Python / 后端 ----
+__pycache__/
+*.py[cod]
+*.sqlite3
+db.sqlite3
+.venv/
+venv/
+env/
+*.log
+
+# ---- 构建与本地产物 ----
+screenshots/
+*.pdf
+# 本地参考素材（体积过大，不纳入仓库）
+參考資料設定/
+capture_cdp.py
+capture_screenshots.py
+crop_screenshots.py
+generate_pdf.py
+
+# ---- 环境变量 ----
+.env
+.env.*
+!.env.example
+
+# ---- 编辑器 / 系统 ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,126 @@
+/**
+ * CSS 变量系统 - 原神风格配色方案
+ *
+ * 主色调：金色/琥珀色 (原神UI华丽金色)
+ * 辅色：深蓝色 (星空深蓝背景)
+ * 强调色：青色/翠绿色
+ * 背景使用渐变和纹理营造异世界氛围
+ */
+
+:root {
+  /* ==================== 主色调 - 金色/琥珀色 ==================== */
+  --color-gold-primary: #D4A853;
+  --color-gold-light: #F0D68A;
+  --color-gold-dark: #A07B30;
+  --color-gold-glow: rgba(212, 168, 83, 0.4);
+  --color-amber: #E8A628;
+  --color-amber-light: #FFD060;
+
+  /* ==================== 辅色 - 深蓝色 ==================== */
+  --color-blue-primary: #1A2340;
+  --color-blue-light: #2A3A6A;
+  --color-blue-dark: #0D1525;
+  --color-blue-deep: #060B14;
+  --color-blue-accent: #4A7FBB;
+
+  /* ==================== 强调色 - 青色/翠绿色 ==================== */
+  --color-cyan-primary: #00D4AA;
+  --color-cyan-light: #40FFD0;
+  --color-cyan-dark: #009977;
+  --color-cyan-glow: rgba(0, 212, 170, 0.3);
+  --color-emerald: #50C878;
+
+  /* ==================== 功能色 ==================== */
+  --color-danger: #FF4757;
+  --color-warning: #FFA502;
+  --color-success: #2ED573;
+  --color-info: #1E90FF;
+
+  /* ==================== 稀有度颜色 ==================== */
+  --rarity-common: #8B9DC3;
+  --rarity-uncommon: #50C878;
+  --rarity-rare: #4A7FBB;
+  --rarity-epic: #9B59B6;
+  --rarity-legendary: #FF8C00;
+  --rarity-mythic: #FF4757;
+
+  /* ==================== 境界颜色 ==================== */
+  --realm-mortal: #8B9DC3;
+  --realm-earth: #50C878;
+  --realm-heaven: #4A7FBB;
+  --realm-divine: #FFD700;
+  --realm-chaos: #FF4757;
+
+  /* ==================== 背景色 ==================== */
+  --bg-primary: var(--color-blue-dark);
+  --bg-secondary: var(--color-blue-primary);
+  --bg-card: rgba(26, 35, 64, 0.85);
+  --bg-card-hover: rgba(42, 58, 106, 0.9);
+  --bg-overlay: rgba(6, 11, 20, 0.8);
+  --bg-sidebar: rgba(13, 21, 37, 0.95);
+  --bg-header: rgba(13, 21, 37, 0.9);
+  --bg-admin: #1a1a2e;
+
+  /* ==================== 文字颜色 ==================== */
+  --text-primary: #E8E6E3;
+  --text-secondary: #9BA3B0;
+  --text-muted: #6B7280;
+  --text-gold: var(--color-gold-primary);
+  --text-link: var(--color-cyan-primary);
+  --text-heading: #F5F3EF;
+
+  /* ==================== 边框 ==================== */
+  --border-color: rgba(212, 168, 83, 0.2);
+  --border-color-light: rgba(212, 168, 83, 0.1);
+  --border-color-active: rgba(212, 168, 83, 0.5);
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+
+  /* ==================== 阴影 ==================== */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 0 20px var(--color-gold-glow);
+  --shadow-cyan: 0 0 20px var(--color-cyan-glow);
+
+  /* ==================== 间距 ==================== */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* ==================== 字体 ==================== */
+  --font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --font-family-display: 'Cinzel', 'Noto Serif SC', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+
+  /* ==================== 布局 ==================== */
+  --header-height: 64px;
+  --sidebar-width: 260px;
+  --sidebar-collapsed-width: 64px;
+  --content-max-width: 1200px;
+  --admin-sidebar-width: 240px;
+
+  /* ==================== 过渡 ==================== */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* ==================== Z-index 层级 ==================== */
+  --z-sidebar: 200;
+  --z-header: 300;
+  --z-dropdown: 350;
+  --z-modal: 400;
+  --z-toast: 500;
+}

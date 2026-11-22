@@ -1,0 +1,591 @@
+/**
+ * 全局样式
+ * 重置默认样式，设置基础排版和通用工具类
+ * 包含原神风格装饰组件工具类
+ */
+
+/* ==================== 重置样式 ==================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-blue-deep);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 异世界背景纹理 - 深蓝星空渐变 */
+  background: linear-gradient(
+    135deg,
+    var(--color-blue-deep) 0%,
+    var(--color-blue-dark) 30%,
+    var(--color-blue-primary) 70%,
+    var(--color-blue-dark) 100%
+  );
+  background-attachment: fixed;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==================== 链接样式 ==================== */
+a {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-cyan-light);
+  text-shadow: 0 0 8px var(--color-cyan-glow);
+}
+
+/* ==================== 滚动条 ==================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-blue-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-primary);
+}
+
+/* ==================== 选中文本 ==================== */
+::selection {
+  background: var(--color-gold-glow);
+  color: var(--text-heading);
+}
+
+/* ==================== 通用工具类 ==================== */
+
+/* 卡片基础样式 */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-color-active);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+/* 金色装饰边框 */
+.card-gold {
+  position: relative;
+}
+
+.card-gold::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--border-radius-lg);
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    var(--color-gold-primary),
+    transparent 40%,
+    transparent 60%,
+    var(--color-gold-primary)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* 标题样式 */
+.section-title {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-2xl);
+  color: var(--text-gold);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 24px;
+  background: var(--color-gold-primary);
+  border-radius: 2px;
+}
+
+/* 页面内容区域 */
+.page-content {
+  max-width: var(--content-max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+/* 网格布局 */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+}
+
+/* 按钮样式 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn:hover {
+  border-color: var(--color-gold-primary);
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold-primary));
+  border-color: var(--color-gold-primary);
+  color: var(--color-blue-deep);
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--color-gold-primary), var(--color-gold-light));
+}
+
+/* 文本截断 */
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  color: var(--text-muted);
+}
+
+.empty-state__icon {
+  font-size: 48px;
+  margin-bottom: var(--spacing-md);
+}
+
+/* ==================== 原神风格装饰工具类 ==================== */
+
+/**
+ * 金色装饰边框 - 四角金色花纹
+ * 使用伪元素在四个角落绘制原神风格的装饰角饰
+ */
+.ornate-border {
+  position: relative;
+  border: 1px solid var(--border-color);
+}
+
+/* 四角金色花纹 - 使用 SVG 数据 URI */
+.ornate-border::before,
+.ornate-border::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 1;
+  /* 左上 + 右下角饰 */
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4A853' stroke-width='1.5'><path d='M2 2 L2 10 M2 2 L10 2 M2 2 L8 8' stroke-linecap='round'/><circle cx='2' cy='2' r='1.5' fill='%23D4A853'/></svg>") top left / 24px 24px no-repeat,
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4A853' stroke-width='1.5'><path d='M22 22 L22 14 M22 22 L14 22 M22 22 L16 16' stroke-linecap='round'/><circle cx='22' cy='22' r='1.5' fill='%23D4A853'/></svg>") bottom right / 24px 24px no-repeat;
+}
+
+.ornate-border::before {
+  top: -1px;
+  left: -1px;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.ornate-border::after {
+  display: none;
+}
+
+/* 更精细的角饰实现 - 使用四个 span 装饰 */
+.ornate-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 2;
+  border: 1.5px solid var(--color-gold-primary);
+}
+
+.ornate-corner--tl {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: var(--border-radius-md);
+}
+
+.ornate-corner--tr {
+  top: -1px;
+  right: -1px;
+  border-left: none;
+  border-bottom: none;
+  border-top-right-radius: var(--border-radius-md);
+}
+
+.ornate-corner--bl {
+  bottom: -1px;
+  left: -1px;
+  border-right: none;
+  border-top: none;
+  border-bottom-left-radius: var(--border-radius-md);
+}
+
+.ornate-corner--br {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: var(--border-radius-md);
+}
+
+/**
+ * 毛玻璃面板
+ * 半透明背景 + backdrop-filter blur
+ */
+.glass-panel {
+  background: rgba(26, 35, 64, 0.55);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.glass-panel--strong {
+  background: rgba(13, 21, 37, 0.75);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+}
+
+/**
+ * 发光文字
+ */
+.glow-text {
+  text-shadow:
+    0 0 10px var(--color-gold-glow),
+    0 0 20px var(--color-gold-glow),
+    0 0 30px rgba(212, 168, 83, 0.2);
+}
+
+.glow-text--cyan {
+  text-shadow:
+    0 0 10px var(--color-cyan-glow),
+    0 0 20px var(--color-cyan-glow);
+}
+
+/**
+ * 装饰性分隔线
+ * 中间带菱形装饰的金色渐变分隔线
+ */
+.ornate-divider {
+  position: relative;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--spacing-lg) 0;
+}
+
+.ornate-divider::before,
+.ornate-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold-primary) 30%,
+    var(--color-gold-primary) 70%,
+    transparent
+  );
+}
+
+.ornate-divider__diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--color-gold-primary);
+  transform: rotate(45deg);
+  margin: 0 var(--spacing-sm);
+  box-shadow: 0 0 8px var(--color-gold-glow);
+  flex-shrink: 0;
+}
+
+.ornate-divider__diamond::before,
+.ornate-divider__diamond::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--color-gold-light);
+  transform: rotate(45deg);
+}
+
+/**
+ * 星空背景效果
+ * 使用多重 radial-gradient + box-shadow 模拟星点
+ */
+.starfield-bg {
+  position: relative;
+  background:
+    radial-gradient(ellipse at top, rgba(74, 127, 187, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(155, 89, 182, 0.1) 0%, transparent 50%),
+    linear-gradient(180deg, var(--color-blue-deep) 0%, var(--color-blue-dark) 100%);
+}
+
+.starfield-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 60px 70px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 120px 50px, rgba(240, 214, 138, 0.7), transparent),
+    radial-gradient(1px 1px at 180px 90px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(2px 2px at 250px 20px, rgba(212, 168, 83, 0.6), transparent),
+    radial-gradient(1px 1px at 300px 110px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 350px 60px, rgba(64, 255, 208, 0.5), transparent),
+    radial-gradient(1px 1px at 400px 130px, rgba(255, 255, 255, 0.6), transparent);
+  background-size: 450px 200px;
+  background-repeat: repeat;
+  animation: twinkle 4s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.starfield-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 50px 100px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(2px 2px at 150px 40px, rgba(240, 214, 138, 0.6), transparent),
+    radial-gradient(1px 1px at 220px 120px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 280px 80px, rgba(212, 168, 83, 0.5), transparent);
+  background-size: 350px 180px;
+  background-repeat: repeat;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/**
+ * 原神风格按钮
+ * 华丽的金色渐变 + 装饰边框 + 悬停发光
+ */
+.btn-genshin {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--color-blue-deep);
+  background: linear-gradient(
+    135deg,
+    var(--color-gold-dark) 0%,
+    var(--color-gold-primary) 50%,
+    var(--color-gold-light) 100%
+  );
+  border: 1px solid var(--color-gold-light);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-genshin::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn-genshin:hover {
+  background: linear-gradient(
+    135deg,
+    var(--color-gold-primary) 0%,
+    var(--color-gold-light) 50%,
+    var(--color-amber-light) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 20px var(--color-gold-glow),
+    0 4px 16px rgba(212, 168, 83, 0.4);
+  transform: translateY(-2px);
+  color: var(--color-blue-deep);
+}
+
+.btn-genshin:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-genshin:active {
+  transform: translateY(0);
+}
+
+/* 次要按钮 - 暗色背景 + 金色边框 */
+.btn-genshin--secondary {
+  background: rgba(13, 21, 37, 0.8);
+  color: var(--text-gold);
+  border-color: var(--color-gold-primary);
+  backdrop-filter: blur(10px);
+}
+
+.btn-genshin--secondary:hover {
+  background: rgba(26, 35, 64, 0.9);
+  color: var(--color-gold-light);
+}
+
+/* 危险按钮 */
+.btn-genshin--danger {
+  background: linear-gradient(135deg, #8B1A1A, var(--color-danger));
+  border-color: var(--color-danger);
+  color: #fff;
+}
+
+.btn-genshin--danger:hover {
+  background: linear-gradient(135deg, var(--color-danger), #FF6B6B);
+  box-shadow: 0 0 20px rgba(255, 71, 87, 0.5);
+}
+
+/* ==================== 等级徽章样式 ==================== */
+.grade-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.grade-badge--s { color: #FF4757; background: rgba(255, 71, 87, 0.15); }
+.grade-badge--e { color: #FF8C00; background: rgba(255, 140, 0, 0.15); }
+.grade-badge--a { color: #9B59B6; background: rgba(155, 89, 182, 0.15); }
+.grade-badge--b { color: #4A7FBB; background: rgba(74, 127, 187, 0.15); }
+.grade-badge--c { color: #50C878; background: rgba(80, 200, 120, 0.15); }
+
+/* ==================== 元素主题色工具类 ==================== */
+.element-anemo { color: #5FCBA1; }    /* 风 - 青绿 */
+.element-geo { color: #F0B540; }      /* 岩 - 金黄 */
+.element-electro { color: #B582D0; }  /* 雷 - 紫 */
+.element-hydro { color: #4CC2F1; }    /* 水 - 蓝 */
+.element-pyro { color: #EC4923; }     /* 火 - 红 */
+.element-cryo { color: #A0D8EA; }     /* 冰 - 浅蓝 */
+.element-dendro { color: #7AC12F; }   /* 草 - 翠绿 */
+
+/* ==================== 响应式 ==================== */
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .page-content {
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
